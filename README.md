@@ -1,0 +1,1 @@
+It is bookshop app where you can find information about books and authors, get the best recommendations and check top rating and buy books whatever you want!
