@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<!DOCTYPE html>
+<footer class="Footer" th:fragment="footer">
+  <div class="wrap">
+    <div class="row Footer-main">
+      <div class="row-block"
+           th:replace="~{fragments/footer_left_side_info_block_fragment :: block}"></div>
+      <div class="row-block">
+        <ul class="menu menu_vt Footer-menu">
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.main}" th:href="@{/}">Главная</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.genres}" th:href="@{/genres/index}">Жанры</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.news}" th:href="@{/books/recent}">Новинки</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.popular}" th:href="@{/books/popular}">Популярное</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.authors}" th:href="@{/authors/index}">Авторы</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row-block">
+        <ul class="menu menu_vt Footer-menu">
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.signin}" th:href="@{/signin}">Войти</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.documents}" th:href="@{/documents/index}">Документы</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.about}" th:href="@{/about}">О компании</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.faq}" th:href="@{/faq}">Помощь</a>
+          </li>
+          <li class="menu-item"><a class="menu-link" th:text="#{footer.menu.contacts}" th:href="@{/contacts}">Контакты</a>
+          </li>
+          <li class="menu-item">
+          <span th:text="#{footer.lang}">Выбор языка</span>
+            <select id="locales">
+              <option value=" "></option>
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="Footer-copy">
+    <div class="wrap">© 2021 Bookshop Pty Ltd. ALL RIGHTS RESERVED
+    </div>
+  </div>
+</footer>
+<script src="/assets/plg/jQuery/jquery-3.5.1.min.js"></script>
+</html>
