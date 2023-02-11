@@ -1,6 +1,8 @@
 package com.example.bookstore.entity.payments;
 
 import com.example.bookstore.entity.BaseEntity;
+import com.example.bookstore.entity.book.BookEntity;
+import com.example.bookstore.entity.user.UserEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,20 +16,20 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class BalanceTransactionEntity extends BaseEntity {
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;
 
     @Column(columnDefinition = "INT NOT NULL  DEFAULT 0")
     @EqualsAndHashCode.Include
-    private int value;
+    private Integer value;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int bookId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
 
     @Column(columnDefinition = "TEXT NOT NULL")
     private String description;

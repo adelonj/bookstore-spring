@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="article" >
-    <h1 class="Middle-title" th:object="${author}" th:text="${author.lastName} + ' ' + ${author.firstName}"></h1>
+    <h1 class="Middle-title" th:object="${author}" th:text="${author.name}"></h1>
     <article class="Article">
         <div class="sdf">
         </div>
@@ -11,7 +11,7 @@
                 </div>
                 <div>
                     <h2>Биография</h2>
-                    <p th:text="${author.bio}"></p>
+                    <p th:text="${author.description}"></p>
 <!--                    <p th:if="${author.bio} == null">Coming soon..</p>-->
 <!--                    <p>Борис Бедный родился в семье учителя в 1916 году в станице Ярославская Краснодарского-->
 <!--                        края. Окончил Майкопский лесной техникум и был послан учиться в Ленинградскую-->
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="Spoiler-hide">
-                <p th:text="${author.bio}"></p>
+                <p th:text="${author.description}"></p>
 <!--                <p th:if="${author.bioExtended} == null">Coming soon..</p>-->
 
                 <!--                <p>"Писать он начал до войны, в академии,- рассказал о нем в предисловии к книге "Первое дело"-->

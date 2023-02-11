@@ -15,7 +15,10 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-public class Book2UserTypeEntity extends BaseEntity {
+public class Book2UserTypeEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     @EqualsAndHashCode.Include

@@ -23,7 +23,7 @@
     <div class="wrap">
         <main class="Middle-main">
             <ul class="breadcrumbs"
-                th:replace="~{fragments/breadcrumb_fragment :: breadcrumps(category=${authorInfo.getLastName()})}"></ul>
+                th:replace="~{fragments/breadcrumb_fragment :: breadcrumps(category=${authorInfo.getName()})}"></ul>
             <div th:replace="~{fragments/author_article_fragment :: article(author=${authorInfo})}">
 
             </div>

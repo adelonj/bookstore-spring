@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class DocumentEntity extends BaseEntity {
 
     @Column(columnDefinition = "INT NOT NULL  DEFAULT 0")
-    private int sortIndex;
+    private Integer sortIndex;
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     @EqualsAndHashCode.Include

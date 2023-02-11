@@ -9,7 +9,7 @@
         <div class="Card-content">
             <strong class="Card-title" th:text="${book.title}"><a href="#"></a>
             </strong>
-            <div class="Card-description" th:text="${book.author.lastName} + ' ' + ${book.author.firstName}">
+            <div class="Card-description" th:text="${book.author.name}">
             </div>
             <div class="Card-cost">
                 <span class="Card-priceOld" th:if="${book.priceOld}" th:text="${book.priceOld}"></span>

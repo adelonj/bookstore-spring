@@ -2,7 +2,6 @@ package com.example.bookstore.service;
 
 import com.example.bookstore.entity.AuthorEntity;
 import com.example.bookstore.repository.AuthorRepository;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +25,9 @@ public class AuthorService {
     }
 
     public Map<String, List<AuthorEntity>> getAuthorsMap() {
-        List<AuthorEntity> authors = repository.findAllByOrderByLastNameAsc();
+        List<AuthorEntity> authors = repository.findAllByOrderByNameAsc();
         return authors.stream().
-                collect(Collectors.groupingBy((AuthorEntity a) -> a.getLastName().substring(0,1)));
+                collect(Collectors.groupingBy((AuthorEntity a) -> a.getName().substring(0,1)));
     }
 
 }

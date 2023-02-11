@@ -15,7 +15,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class BookFileTypeEntity extends BaseEntity {
-
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     private String name;
 

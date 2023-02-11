@@ -1,6 +1,8 @@
 package com.example.bookstore.entity.book.review;
 
 import com.example.bookstore.entity.BaseEntity;
+import com.example.bookstore.entity.book.BookEntity;
+import com.example.bookstore.entity.user.UserEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,13 +19,13 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class BookReviewEntity extends BaseEntity {
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int bookId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;

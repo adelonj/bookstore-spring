@@ -1,6 +1,9 @@
 package com.example.bookstore.entity.book.links;
 
+import com.example.bookstore.entity.AuthorEntity;
 import com.example.bookstore.entity.BaseEntity;
+import com.example.bookstore.entity.book.BookEntity;
+import io.swagger.models.auth.In;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,14 +17,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-public class Book2AuthorEntity extends BaseEntity {
+public class Book2AuthorEntity  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int bookId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int authorId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private AuthorEntity author;
 
     @Column(columnDefinition = "INT NOT NULL  DEFAULT 0")
-    private int sortIndex;
+    private Integer sortIndex;
 }

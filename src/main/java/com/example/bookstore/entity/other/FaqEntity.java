@@ -16,9 +16,6 @@ import javax.persistence.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class FaqEntity extends BaseEntity {
 
-    @Column(columnDefinition = "INT NOT NULL  DEFAULT 0")
-    private int sortIndex;
-
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     @EqualsAndHashCode.Include
     private String question;
@@ -26,5 +23,8 @@ public class FaqEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT NOT NULL")
     @EqualsAndHashCode.Include
     private String answer;
+
+    @Column(columnDefinition = "INT NOT NULL  DEFAULT 0")
+    private Integer sortIndex;
 
 }

@@ -2,6 +2,7 @@ package com.example.bookstore.entity.user;
 
 import com.example.bookstore.entity.BaseEntity;
 import com.example.bookstore.entity.enums.ContactType;
+import io.swagger.models.auth.In;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,21 +19,21 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
 public class UserContactEntity extends BaseEntity {
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int userId;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+    
     private ContactType type;
 
     @Column(columnDefinition = "SMALLINT NOT NULL")
-    private short approved;
+    private Short approved;
 
     @Column(columnDefinition = "VARCHAR(255) NOT NULL")
     @EqualsAndHashCode.Include
     private String code;
 
     @Column(columnDefinition = "INT")
-    private int codeTrails;
+    private Integer codeTrails;
 
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime codeTime;

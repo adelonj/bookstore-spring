@@ -1,6 +1,6 @@
 package com.example.bookstore.service;
 
-import com.example.bookstore.entity.BookEntity;
+import com.example.bookstore.entity.book.BookEntity;
 import com.example.bookstore.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,7 @@
 package com.example.bookstore.entity.book.review;
 
 import com.example.bookstore.entity.BaseEntity;
+import com.example.bookstore.entity.user.UserEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,9 +21,9 @@ public class MessageEntity extends BaseEntity {
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;
 
-    @Column(columnDefinition = "INT")
-    @EqualsAndHashCode.Include
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     @Column(columnDefinition = "VARCHAR(255)")
     @EqualsAndHashCode.Include

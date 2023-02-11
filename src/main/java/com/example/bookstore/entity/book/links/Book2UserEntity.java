@@ -1,34 +1,37 @@
 package com.example.bookstore.entity.book.links;
 
 import com.example.bookstore.entity.BaseEntity;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.bookstore.entity.book.BookEntity;
+import com.example.bookstore.entity.user.UserEntity;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "book2user")
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
-public class Book2UserEntity extends BaseEntity {
+public class Book2UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(columnDefinition = "TIMESTAMP NOT NULL")
     private LocalDateTime time;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    private int typeId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_id")
+    private Book2UserTypeEntity type;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int bookId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
 
-    @Column(columnDefinition = "INT NOT NULL")
-    @EqualsAndHashCode.Include
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
 }
